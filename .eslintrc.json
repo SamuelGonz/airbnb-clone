@@ -3,5 +3,8 @@
     "./node_modules/standard/eslintrc.json",
     "next/core-web-vitals",
     "eslint-config-prettier"
-  ]
+  ],
+  "rules": {
+    "react/self-closing-comp": "off"
+  }
 }
