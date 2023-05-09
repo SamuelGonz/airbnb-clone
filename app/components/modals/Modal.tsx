@@ -1,5 +1,7 @@
 "use client";
 import { FC, ReactElement, useCallback, useEffect, useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import { Button } from "../Button";
 
 interface Props {
    isOpen?: boolean;
@@ -11,7 +13,7 @@ interface Props {
    actionLabel: string;
    disabled?: boolean;
    secondaryAction?: () => void;
-   secondaryLabel?: string;
+   secondaryActionLabel?: string;
 }
 
 export const Modal: FC<Props> = ({
@@ -24,7 +26,7 @@ export const Modal: FC<Props> = ({
    actionLabel,
    disabled,
    secondaryAction,
-   secondaryLabel,
+   secondaryActionLabel,
 }) => {
    const [showModal, setShowModal] = useState(isOpen);
 
@@ -67,7 +69,31 @@ export const Modal: FC<Props> = ({
                >
                   <div className="translate h-full lg:h-auto  md:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none ">
                      {/*  HEADER */}
-                     <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]"></div>
+                     <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]">
+                        <button
+                           onClick={handleClose}
+                           className="p-1 border-0 hover:opacity-70 transition absolute left-9"
+                        >
+                           <IoMdClose size={18} />
+                        </button>
+                        <div className="text-lf font-semibold">{tittle}</div>
+                     </div>
+                     {/* BODY */}
+                     <div className="relative p-6 flex-auto">{body}</div>
+                     {/* FOOTER */}
+                     <div className="flex flex-col p-6 gap-2">
+                        <div className="flex flex-row items-center gap-2 w-full">
+                           {secondaryAction && secondaryActionLabel && (
+                              <Button
+                                 disabled={disabled}
+                                 label={secondaryActionLabel}
+                                 onClick={handleSecondaryAction}
+                                 outline
+                              />
+                           )}
+                           <Button disabled={disabled} label={actionLabel} onClick={handleSubmit} />
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>

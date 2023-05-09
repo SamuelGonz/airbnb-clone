@@ -5,6 +5,7 @@
     "eslint-config-prettier"
   ],
   "rules": {
-    "react/self-closing-comp": "off"
+    "react/self-closing-comp": "off",
+    "react/jsx-handler-names": "off"
   }
 }

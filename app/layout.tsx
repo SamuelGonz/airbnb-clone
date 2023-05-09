@@ -3,7 +3,7 @@ import { Nunito } from "next/font/google";
 
 import Navbar from "./components/navbar/Navbar";
 import ClienteOnly from "./components/ClientOnly";
-import { Modal } from "./components/modals/Modal";
+import { RegisterModal } from "./components/modals/RegisterModal";
 
 import "./globals.css";
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <html lang="en">
          <body className={font.className}>
             <ClienteOnly>
-               <Modal isOpen />
+               <RegisterModal />
                <Navbar />
             </ClienteOnly>
             {children}
