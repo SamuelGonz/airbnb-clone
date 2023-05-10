@@ -1,3 +1,3 @@
 ### Airbnb Clone
 
-min50
+min1:35

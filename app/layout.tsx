@@ -4,6 +4,7 @@ import { Nunito } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 import ClienteOnly from "./components/ClientOnly";
 import { RegisterModal } from "./components/modals/RegisterModal";
+import { ToasterProvider } from "./providers/ToasterProvider";
 
 import "./globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <html lang="en">
          <body className={font.className}>
             <ClienteOnly>
+               <ToasterProvider />
                <RegisterModal />
                <Navbar />
             </ClienteOnly>

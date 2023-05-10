@@ -93,6 +93,7 @@ export const Modal: FC<Props> = ({
                            )}
                            <Button disabled={disabled} label={actionLabel} onClick={handleSubmit} />
                         </div>
+                        {footer}
                      </div>
                   </div>
                </div>
