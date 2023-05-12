@@ -5,7 +5,6 @@ import bcrypt from "bcrypt";
 import prisma from "../../libs/prismadb";
 
 export async function POST(request: Request) {
-   console.log("LLAMADA 1");
    const body = await request.json();
 
    const { email, name, password } = body;

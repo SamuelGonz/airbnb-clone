@@ -6,6 +6,7 @@
   ],
   "rules": {
     "react/self-closing-comp": "off",
-    "react/jsx-handler-names": "off"
+    "react/jsx-handler-names": "off",
+    "no-unused-vars": "warn"
   }
 }
