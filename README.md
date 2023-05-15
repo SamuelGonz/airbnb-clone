@@ -1,3 +1,4 @@
 ### Airbnb Clone
 
-min 2:00:20
+
+min 3:11:35 // terminando categorias

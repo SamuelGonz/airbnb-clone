@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 
-import { User } from "@prisma/client";
+import type { SafeUser } from "@/app/types";
 
 import { Avatar } from "../Avatar";
 import { MenuItem } from "./MenuItem";
@@ -11,11 +11,10 @@ import { MenuItem } from "./MenuItem";
 import { useLoginModal, useRegisterModal } from "@/app/hooks";
 
 interface Props {
-   currentUser?: User | null;
+   currentUser?: SafeUser | null;
 }
 
 export const UserMenu = ({ currentUser }: Props) => {
-   console.log("currentUser: ", currentUser);
    const [isOpen, setIsOpen] = useState(false);
    const registerModal = useRegisterModal();
    const loginModal = useLoginModal();
@@ -39,7 +38,7 @@ export const UserMenu = ({ currentUser }: Props) => {
             >
                <AiOutlineMenu />
                <div className="hidden md:block">
-                  <Avatar />
+                  <Avatar src={currentUser?.image} />
                </div>
             </div>
          </div>
