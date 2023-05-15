@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
-import { useRegisterModal } from "@/app/hooks";
+import { useLoginModal, useRegisterModal } from "@/app/hooks";
 import { Modal } from "./Modal";
 import { Heading } from "../Heading";
 import { Input } from "../inputs/Input";
@@ -18,6 +18,8 @@ import { signIn } from "next-auth/react";
 
 export const RegisterModal = () => {
    const registerModal = useRegisterModal();
+   const loginModal = useLoginModal();
+
    const [isLoading, setIsLoading] = useState(false);
 
    const {
@@ -41,6 +43,11 @@ export const RegisterModal = () => {
          .catch(() => toast.error("Something went wrong"))
          .finally(() => setIsLoading(false));
    };
+
+   const toggle = useCallback(() => {
+      registerModal.onClose();
+      loginModal.onOpen();
+   }, [loginModal, registerModal]);
 
    const bodyContent = (
       <div className="flex flex-col gap-4">
@@ -67,7 +74,7 @@ export const RegisterModal = () => {
          <div className="text-neutral-500 text-center mt-4 font-light">
             <div className="flex lfex-row items-center gap-2 justify-center">
                <div>Already have an account?</div>
-               <div onClick={registerModal.onClose} className="text-neutral-800 cursor-pointer hover:underline">
+               <div onClick={toggle} className="text-neutral-800 cursor-pointer hover:underline">
                   Log in
                </div>
             </div>
