@@ -97,7 +97,11 @@ export const RentModal = () => {
    );
 
    if (step === STEPS.LOCATION) {
-      bodyContent = <div>Location Step!</div>;
+      bodyContent = (
+         <div className="flex flex-col gap-8">
+            <Heading title="Where is your place localed?" subTitle="Help guests find you!" />
+         </div>
+      );
    }
    return (
       <Modal
