@@ -4,13 +4,15 @@ import { Nunito } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 import ClienteOnly from "./components/ClientOnly";
 
+// Modals
 import { RegisterModal } from "./components/modals/RegisterModal";
 import { LoginModal } from "./components/modals/LoginModal";
+import { RentModal } from "./components/modals/RentModal";
 
 import { ToasterProvider } from "./providers/ToasterProvider";
+import getCurrentUser from "./actions/getCurrentuser";
 
 import "./globals.css";
-import getCurrentUser from "./actions/getCurrentuser";
 
 export const metadata = {
    title: "AirBnb Clone",
@@ -31,6 +33,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                <ToasterProvider />
                <RegisterModal />
                <LoginModal />
+               <RentModal />
                <Navbar currentUser={currentUser} />
             </ClienteOnly>
             {children}
