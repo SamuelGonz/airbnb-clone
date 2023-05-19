@@ -1,4 +1,4 @@
 ### Airbnb Clone
 
 
-min 4:49:00// endpoint 
+min 4:07:20// show card 
