@@ -31,7 +31,7 @@ export async function POST(request: Request, { params }: { params: IParams }) {
       },
    });
 
-   return NextResponse.json(user);
+   return NextResponse.json(user, { status: 200 });
 }
 
 export async function DELETE(request: Request, { params }: { params: IParams }) {
@@ -58,5 +58,5 @@ export async function DELETE(request: Request, { params }: { params: IParams }) 
       },
    });
 
-   return NextResponse.json(user);
+   return NextResponse.json(user, { status: 200 });
 }

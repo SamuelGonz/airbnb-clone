@@ -26,7 +26,10 @@ export const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
       async (e: MouseEvent<HTMLDivElement>) => {
          e.stopPropagation();
 
-         if (!currentUser) return loginModal.onOpen();
+         if (!currentUser) {
+            loginModal.onOpen();
+            return false;
+         }
 
          try {
             let request;
@@ -36,11 +39,18 @@ export const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
                request = () => axios.post(`/api/favorites/${listingId}`);
             }
 
-            await request();
-            router.refresh();
-            toast.success("Success");
+            const resp = await request();
+            if (resp.status === 200) {
+               router.refresh();
+               toast.success("Success");
+               return true;
+            } else {
+               toast.error("Somtething went wrong");
+               return false;
+            }
          } catch (error) {
             toast.error("Something went wrong.");
+            return false;
          }
       },
       [currentUser, hasFavorited, listingId, router, loginModal]
