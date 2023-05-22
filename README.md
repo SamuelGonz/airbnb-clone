@@ -1,4 +1,3 @@
 ### Airbnb Clone
 
-
-min 5:39:20// show card 
+min 6:16:57// 
