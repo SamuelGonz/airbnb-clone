@@ -9,7 +9,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useRentModal } from "@/app/hooks";
 import { Modal } from "./Modal";
 import { Heading } from "../Heading";
-import { categories } from "../navbar";
+import { categories } from "../navbar/Categories";
 
 import { CategoryInput } from "../inputs/CategoryInput";
 import { CountrySelect } from "../inputs/CountrySelect";

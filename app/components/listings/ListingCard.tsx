@@ -1,10 +1,10 @@
 "use client";
 import { FC, useCallback, useMemo } from "react";
 import type { MouseEvent } from "react";
-import { Listing, Reservation } from "@prisma/client";
+import { Reservation } from "@prisma/client";
 import { format } from "date-fns";
 
-import { SafeUser } from "@/app/types";
+import { SafeListing, SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 import { useCountries } from "@/app/hooks";
 import Image from "next/image";
@@ -15,7 +15,7 @@ interface Props {
    actionId?: string;
    actionLabel?: string;
    currentUser?: SafeUser | null;
-   data: Listing;
+   data: SafeListing;
    disabled?: boolean;
    onAction?: (id: string) => void;
    reservation?: Reservation;

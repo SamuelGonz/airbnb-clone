@@ -76,3 +76,5 @@ export const UserMenu = ({ currentUser }: Props) => {
       </div>
    );
 };
+
+export default UserMenu;

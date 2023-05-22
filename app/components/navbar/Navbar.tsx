@@ -1,7 +1,11 @@
 "use client";
 
 import { Container } from "../Container";
-import { Logo, Search, UserMenu, Categories } from "./";
+// import { Logo, Search, Categories } from "./";
+import UserMenu from "./UserMenu";
+import { Logo } from "./Logo";
+import { Search } from "./Search";
+import { Categories } from "./Categories";
 
 import type { SafeUser } from "@/app/types";
 
