@@ -3,7 +3,7 @@ import React from "react";
 import getListingById from "@/app/actions/getListingById";
 import { EmptyState } from "@/app/components/EmptyState";
 import getCurrentUser from "@/app/actions/getCurrentuser";
-import { ListingClient } from "./ListingClient";
+import { ListingClient } from "./components/ListingClient";
 
 interface IParams {
    listingId?: string;
