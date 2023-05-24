@@ -1,10 +1,10 @@
 "use client";
 import { FC, useCallback, useMemo } from "react";
 import type { MouseEvent } from "react";
-import { Reservation } from "@prisma/client";
+
 import { format } from "date-fns";
 
-import { SafeListing, SafeUser } from "@/app/types";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 import { useCountries } from "@/app/hooks";
 import Image from "next/image";
@@ -18,7 +18,7 @@ interface Props {
    data: SafeListing;
    disabled?: boolean;
    onAction?: (id: string) => void;
-   reservation?: Reservation;
+   reservation?: SafeReservation;
 }
 
 export const ListingCard: FC<Props> = ({

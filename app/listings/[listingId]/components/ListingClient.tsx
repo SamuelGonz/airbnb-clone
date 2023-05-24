@@ -7,15 +7,15 @@ import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { toast } from "react-hot-toast";
 import type { Range } from "react-date-range";
 
-import { SafeListing, SafeUser } from "@/app/types";
-import { Reservation } from "@prisma/client";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
+
 import { categories } from "@/app/components/navbar/Categories";
 import { Container } from "@/app/components/Container";
 import { ListingHead } from "./ListingHead";
 import { ListingInfo } from "./ListingInfo";
+import { ListingReservation } from "./ListingReservation";
 
 import { useLoginModal } from "@/app/hooks";
-import { ListingReservation } from "./ListingReservation";
 
 const initialDateRange = {
    startDate: new Date(),
@@ -24,7 +24,7 @@ const initialDateRange = {
 };
 
 interface Props {
-   reservations?: Reservation[];
+   reservations?: SafeReservation[];
    listing: SafeListing & {
       user: SafeUser;
    };
