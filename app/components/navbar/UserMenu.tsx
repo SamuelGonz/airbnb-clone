@@ -37,6 +37,11 @@ export const UserMenu = ({ currentUser }: Props) => {
       // Open rent modal
       rentModal.onOpen();
    }, [currentUser, loginModal, rentModal]);
+
+   const handleRouter = (url: string) => {
+      router.push(url);
+      setIsOpen(false);
+   };
    return (
       <div className="relative">
          <div className="flex flex-row items-center gap-3">
@@ -61,9 +66,9 @@ export const UserMenu = ({ currentUser }: Props) => {
                <div className="flex flex-col cursor-pointer">
                   {currentUser ? (
                      <>
-                        <MenuItem onClick={() => router.push("/trips")} label="My trips" />
-                        <MenuItem onClick={() => {}} label="My Favorites" />
-                        <MenuItem onClick={() => {}} label="My reservations" />
+                        <MenuItem onClick={() => handleRouter("/trips")} label="My trips" />
+                        <MenuItem onClick={() => handleRouter("/favorites")} label="My Favorites" />
+                        <MenuItem onClick={() => handleRouter("/reservations")} label="My reservations" />
                         <MenuItem onClick={() => {}} label="My properties" />
                         <MenuItem onClick={() => rentModal.onOpen()} label="Airbnb my home" />
                         <hr />
