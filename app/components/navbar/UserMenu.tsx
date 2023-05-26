@@ -69,7 +69,7 @@ export const UserMenu = ({ currentUser }: Props) => {
                         <MenuItem onClick={() => handleRouter("/trips")} label="My trips" />
                         <MenuItem onClick={() => handleRouter("/favorites")} label="My Favorites" />
                         <MenuItem onClick={() => handleRouter("/reservations")} label="My reservations" />
-                        <MenuItem onClick={() => {}} label="My properties" />
+                        <MenuItem onClick={() => handleRouter("/properties")} label="My properties" />
                         <MenuItem onClick={() => rentModal.onOpen()} label="Airbnb my home" />
                         <hr />
                         <MenuItem onClick={() => signOut()} label="Logout" />

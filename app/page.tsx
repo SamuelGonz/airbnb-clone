@@ -1,12 +1,17 @@
 import getCurrentUser from "./actions/getCurrentuser";
-import getListings from "./actions/getListings";
+import getListings, { IlistingParams } from "./actions/getListings";
 
 import { Container } from "./components/Container";
 import { EmptyState } from "./components/EmptyState";
 import { ListingCard } from "./components/listings/ListingCard";
 
-export default async function Home() {
-   const listings = await getListings();
+interface Props {
+   searchParams: IlistingParams;
+}
+
+export default async function Home({ searchParams }: Props) {
+   console.log("@@@@@@@@@ AQUÍ @@@@@@ => ", searchParams);
+   const listings = await getListings(searchParams);
    const currentUser = await getCurrentUser();
 
    if (listings.length === 0) {
