@@ -3,6 +3,7 @@ import getListings, { IlistingParams } from "./actions/getListings";
 
 import { Container } from "./components/Container";
 import { EmptyState } from "./components/EmptyState";
+
 import { ListingCard } from "./components/listings/ListingCard";
 
 interface Props {
@@ -10,8 +11,7 @@ interface Props {
 }
 
 export default async function Home({ searchParams }: Props) {
-   console.log("@@@@@@@@@ AQUÍ @@@@@@ => ", searchParams);
-   const listings = await getListings(searchParams);
+   const listings = await getListings({});
    const currentUser = await getCurrentUser();
 
    if (listings.length === 0) {
